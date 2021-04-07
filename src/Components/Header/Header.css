@@ -1,66 +1,60 @@
-.dropdown-item svg {
-    margin-bottom: 2px;
-    margin-right: 7px;
+
+.nav-logo{
+    display: flex;
+    align-items: center;
+    margin-top: -22px;
 }
 
-#addButton svg {
-    margin-bottom: -5px;
-    margin-right: -3px;
-    font-size: 23pt;
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-#nav-sign-up {
-    padding: 10px;
+.navbar ul{
+    display: flex;
+    list-style: none;
+    
 }
 
-#addButton {
-    padding: 7px;
+
+.navbar ul li{
+    margin: 0 1px;
+    background: lightgray;
+    padding: 33px;
 }
 
-.navbar-nav .dropdown {
-    top: 3px;
+.navbar ul li a{
+    text-decoration: none;
+    color: #40494D;
+    font-size: 20px;
 }
 
-#nav-sign-in {
-    color: rgba(0, 0, 0, .8);
-    padding: 10px;
-}
 
-.dropdown-toggle::after {
-    display: none;
-}
 
-.dropdown-toggle svg {
-    font-size: 24pt;
-}
-
-.navbar-nav svg {
-    color: black;
-    font-size: 14pt;
-}
-
-#collasible-nav-dropdown svg {
-    font-size: 24pt;
-}
-
-.dropleft .dropdown-toggle::before {
-    display: none;
-}
-
-.navbar-brand a {
-    font-family: serif;
-    font-style: italic;
-    font-size: 20pt;
-}
-
-.dropdown-item.active, .dropdown-item.active svg {
+body > header > nav > ul > li.orange > a{
     color: white;
-    background-color: #343a40;
+    font-size: 20px;
 }
-#navImg {
-    width: 32px;
-    height: 32px;
-    object-fit: cover;
-    border-radius: 100px;
-    border: 1px solid black;
+
+.nav-title{
+    font-size: 40px;
+    margin-right: 40px;
+}
+
+.nav-title::after{
+    content: '';
+    background-color: gray;
+    height: 55px;
+    width: 1px;
+    position: relative;
+    display: inline-flex;
+    left: 6%;
+    top: 12px;
+
+}
+
+.nav-subtitle{
+    color: gray;
+    margin-top: 14px;
 }

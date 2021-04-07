@@ -4,31 +4,28 @@ import { useEffect } from 'react';
 import './Header.css'
 function Header() {
 
+    const isAuthenticated = false;
+
     return (
         <>
-            <header id="site-header">
-                <nav className="navbar">
-                    <section className="navbar-dashboard">
-                        <div className="first-bar">
-                            <Link to="/">Dashboard</Link>
-                            <Link className="button" to="#">All Recipes</Link>
-                            <Link className="button" to="/pets/create">Add Recipe</Link>
-                        </div>
-                        <div className="second-bar">
-                            <ul>
-                                 <li>Welcome, Pesho!</li>                                
+            <header>
+                <nav class="navbar special-spanner">
+                    <article class="nav-logo">
+                        <h1 class="nav-title">
+                            Recipe Portal
+                </h1>
+                        <article class="nav-subtitle">
+                            BY GALEXANDROV
+                </article>
+                    </article>
 
-                                <li><Link to="/logout"><i className="fas fa-sign-out-alt"></i> Logout</Link></li>
-                            </ul>
-                        </div>
-                    </section>
-                    <section className="navbar-anonymous">
-                        <ul>
-                            <li><Link to="/register"><i className="fas fa-user-plus"></i> Register</Link></li>
-                            <li><Link to="/login"><i className="fas fa-sign-in-alt"></i> Login</Link></li>
-                        </ul>
-                    </section>
+                    <ul>
+                        <li><Link className="button" to="#">All Recipes</Link></li>
+                        <li><Link to="/register"><i className="fas fa-user-plus"></i> Register</Link></li>
+                        <li><Link to="/login"><i className="fas fa-sign-in-alt"></i> Login</Link></li>
+                    </ul>
                 </nav>
+
             </header>
 
         </>
