@@ -1,0 +1,14 @@
+.login{
+    text-align: center;
+    margin-top: 50px;
+    font-size: 20px;
+}
+
+.field label{
+    margin-right: 13px;
+}
+
+.login input{
+    border-radius: 9px;
+    padding: 5px;
+}

@@ -1,14 +1,14 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 
-const firebaseConfig = {
-    apiKey: "AIzaSyAuQ0c9-PnrLDCio0AdxK-dbFgBzNituTw",
-    authDomain: "",
-    projectId: "recipeportal-7f960",
-    storageBucket: "react-my-pets.appspot.com",
-    messagingSenderId: "903466778741",
-    appId: "1:903466778741:web:6281a57331e104eb86b83c"
-};
+var firebaseConfig = {
+    apiKey: "AIzaSyD0d_mwoCqfVdCPrFEndS9-avxP_UNyhcc",
+    authDomain: "recipe-portal-32190.firebaseapp.com",
+    projectId: "recipe-portal-32190",
+    storageBucket: "recipe-portal-32190.appspot.com",
+    messagingSenderId: "31932475264",
+    appId: "1:31932475264:web:04b5d32144fb4c6c664365"
+  };
 
 if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);

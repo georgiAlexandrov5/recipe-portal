@@ -3,6 +3,8 @@ import './App.css';
 import Header from './Components/Header/Header';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Recipes from "./Components/Recipes/Recipes"
+import Login from "./Components/Login/Login"
+import Register from "./Components/Register/Register"
 import { useEffect, useState } from 'react';
 import { auth } from './firebase/firebase';
 
@@ -25,6 +27,10 @@ function App() {
       <Header />
       <Switch>
       <Route path="/" exact render={props => <Recipes {...props} {...authInfo} />} />
+      <Route path="/login" component={Login} />
+      <Route path="/register" component={Register} />
+
+
       </Switch>
     </>
   );
