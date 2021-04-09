@@ -1,0 +1,49 @@
+footer {
+    padding: 1rem;
+    background-color: rgb(87, 127, 172);
+    text-align: center;
+    color: white;
+    margin-top: 3%;
+}
+
+footer a {
+    color: #000000c2;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.connections {
+    color: white;
+}
+
+.connections svg {
+    /* font-size: 30pt; */
+    margin: 7px;
+}
+
+.connections a {
+    color: white;
+}
+
+.connections a:hover {
+    color: #424242
+}
+
+#instaIcon {
+    font-size: 35pt;
+}
+
+#fbIcon {
+    font-size: 30pt;
+}
+
+#linkedIcon {
+    font-size: 34pt;
+}
+
+.gitLink{
+    color: white;
+    padding-left: 15px;
+}
