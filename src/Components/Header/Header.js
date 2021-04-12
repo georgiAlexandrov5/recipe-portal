@@ -1,29 +1,65 @@
 import { Link } from 'react-router-dom'
-import { useEffect } from 'react';
+import { auth } from '../../firebase/firebase';
+import { useEffect, useContext } from 'react';
+import AuthContext from '../../firebase/authContext';
+import Context from "../../firebase/authContext"
+import firebase from '../../firebase/firebase';
+
 
 import './Header.css'
 function Header() {
 
-    const isAuthenticated = false;
+    const { isAuthenticated } = useContext(AuthContext);
+
+    
+    useEffect(() => {
+        if (!isAuthenticated) {
+            return;
+        }
+
+        auth.currentUser.getIdToken()
+            .then(function (idToken) {
+                return fetch('http://localhost:3000', {
+                    headers: {
+                        'Authorization': idToken
+                    }
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            });
+
+        useContext.isAuthenticated = true;
+
+    }, [isAuthenticated])
 
     return (
         <>
             <header>
-                <nav class="navbar special-spanner">
-                    <article class="nav-logo">
-                        <h1 class="nav-title">
+                <nav className="navbar special-spanner">
+                    <article className="nav-logo">
+                        <h1 className="nav-title">
                             Recipe Portal
                 </h1>
-                        <article class="nav-subtitle">
+                        <article className="nav-subtitle">
                             BY GALEXANDROV
                 </article>
                     </article>
 
-                    <ul>
-                        <li><Link className="button" to="#">All Recipes</Link></li>
-                        <li><Link to="/register"><i className="fas fa-user-plus"></i> Register</Link></li>
-                        <li><Link to="/login"><i className="fas fa-sign-in-alt"></i> Login</Link></li>
+                    < ul >
+                        <li><Link className="button" to="/">All Recipes</Link></li>
+                        {
+                            isAuthenticated ?
+                                <>
+                                    <li><Link to="/login"><i className="fas fa-sign-in-alt"></i> Login</Link></li>
+                                    <li><Link to="/register"><i className="fas fa-user-plus"></i> Register</Link></li>
+                                </>
+                                : <li><Link to="/logout"><i className="fas fa-user-plus"></i> Logout</Link></li>
+                        }
                     </ul>
+
+
                 </nav>
 
             </header>

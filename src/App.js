@@ -12,10 +12,14 @@ import { auth } from './firebase/firebase';
 
 
 
+
 function App() {
 
   const [user, setUser] = useState(null);
 
+  useEffect(() => {
+    auth.onAuthStateChanged(setUser);
+  }, []);
  
 
   const authInfo = {
@@ -30,6 +34,12 @@ function App() {
       <Route path="/" exact render={props => <Recipes {...props} {...authInfo} />} />
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
+      <Route path="/logout" render={() => {
+              auth.signOut();
+              authInfo.isAuthenticated = false;
+              return <Redirect to="/" />
+            }} />
+
 
 
       </Switch>

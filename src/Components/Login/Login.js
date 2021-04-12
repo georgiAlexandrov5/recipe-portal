@@ -1,5 +1,7 @@
 import { auth } from '../../firebase/firebase';
 import './Login.css';
+import { Link } from 'react-router-dom'
+
 
 const Login = ({
     history
@@ -17,6 +19,7 @@ const Login = ({
                 history.push('/');
             });
     };
+    
 
     return (
         <section className="login">
@@ -42,6 +45,8 @@ const Login = ({
                     <input className="button" type="submit" className="submit" value="Login" />
                 </fieldset>
             </form>
+            <p className="bottom-msg-paragraph">Don't have an account? <Link to="/register">Sign Up</Link>!</p>
+
         </section>
     );
 };
