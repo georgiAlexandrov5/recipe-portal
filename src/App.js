@@ -6,8 +6,11 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import Recipes from "./Components/Recipes/Recipes"
 import Login from "./Components/Login/Login"
 import Register from "./Components/Register/Register"
-import { useEffect, useState } from 'react';
+import AddRecipe from "./Components/Create/AddRecipe"
+import { useEffect, useState, useContext } from 'react';
 import { auth } from './firebase/firebase';
+
+
 
 
 
@@ -16,6 +19,8 @@ import { auth } from './firebase/firebase';
 function App() {
 
   const [user, setUser] = useState(null);
+
+
 
   useEffect(() => {
     auth.onAuthStateChanged(setUser);
@@ -27,18 +32,21 @@ function App() {
     username: user?.email,
   };
 
+  
   return (
     <>
-      <Header />
+      <Header {...authInfo}/>
       <Switch>
-      <Route path="/" exact render={props => <Recipes {...props} {...authInfo} />} />
-      <Route path="/login" component={Login} />
-      <Route path="/register" component={Register} />
-      <Route path="/logout" render={() => {
-              auth.signOut();
-              authInfo.isAuthenticated = false;
-              return <Redirect to="/" />
-            }} />
+          <Route path="/" exact render={props => <Recipes {...props} {...authInfo} />} />
+          <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
+          <Route path="/logout" render={() => {
+                  auth.signOut();
+                  authInfo.isAuthenticated = false;
+                  return <Redirect to="/" />
+                }} />
+          <Route path="/add-recipe" exact render={props => <AddRecipe {...props} {...authInfo} />} />
+
 
 
 
