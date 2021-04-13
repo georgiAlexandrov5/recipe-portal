@@ -4,6 +4,8 @@ footer {
     text-align: center;
     color: white;
     margin-top: 3%;
+    height: 98px;
+    padding-top: 1px;
 }
 
 footer a {

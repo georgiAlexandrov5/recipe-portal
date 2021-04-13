@@ -7,5 +7,36 @@
     min-height: 530px;
     margin-top: -20px;
     margin-bottom: -45px;
+    
   
+}
+
+.RecipesList a{
+    padding: 9px;
+    background: white;
+    border-radius: 7px;
+    margin-left: 24px;
+}
+
+
+.RecipesList li{
+    background-color: unset;
+    max-width: 200px;
+    border-radius: 16px;
+    margin-left: 50px;
+    color: white;
+    list-style: none;
+}
+
+.recipeImg{
+    max-width: 117px;
+    height: 140px;
+    margin-left: -1px;
+}
+
+.dashboard-title{
+    color: white;
+    text-align: center;
+    font-family: monospace;
+    padding-top: 10px;
 }

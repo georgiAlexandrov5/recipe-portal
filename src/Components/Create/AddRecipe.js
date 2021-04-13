@@ -3,6 +3,7 @@ import { Form, Button, Col, Spinner, Alert } from 'react-bootstrap';
 import './AddRecipe.css';
 import background1 from '../../public/background1.jpg';
 import firebase from "../../firebase/firebase";
+import {v4 as uuidv4} from "uuid";
 
 
 
@@ -14,7 +15,7 @@ class  AddRecipe extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { title: "", time: "", description: "", author: props.username,  imgUrl: "", ingredients: [] };
+        this.state = { title: "", time: "", description: "", author: props.username,  imgUrl: "", ingredients: ""};
         this.onChangeHandler = this.onChangeHandler.bind(this);
         this.addRecipe = this.addRecipe.bind(this);
     }
@@ -29,11 +30,13 @@ class  AddRecipe extends Component {
         newRecipe.preventDefault()
         newRecipe = {...this.state};
         console.log(newRecipe)
-        ref.doc()
+        ref.doc(newRecipe.id = uuidv4())
         .set(newRecipe)
         .catch((err) => {
             console.log(err)
         })
+
+        this.props.history.push('/');
 
         console.log(newRecipe);
     }
@@ -77,7 +80,7 @@ class  AddRecipe extends Component {
                                     
 
                             <Form.Group as={Col} controlId="formGridImage" >
-                                <Form.Label>Image Url</Form.Label>
+                                <Form.Label>Image</Form.Label>
                                 <Form.Control name="imgUrl" type="text" required onChange={this.onChangeHandler} />
                             </Form.Group>
                         </Form.Row>

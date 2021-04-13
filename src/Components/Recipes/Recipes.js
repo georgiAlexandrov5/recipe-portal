@@ -1,8 +1,9 @@
 import { Component, useState, useEffect } from 'react';
-import background1 from '../../public/background1.jpg'
+import background2 from '../../public/background2.jpg'
 import './Recipes.css';
 import firebase from '../../firebase/firebase'
-import { FaSchool } from 'react-icons/fa';
+import { Link } from 'react-router-dom'
+
 
 
 
@@ -20,6 +21,7 @@ function Recipes() {
             const items = [];
             querySnapshot.forEach((recipe) => {
                 items.push(recipe.data());
+
             });
             setRecipes(items);
         });
@@ -29,23 +31,28 @@ function Recipes() {
         getRecipes();
     }, []);
 
+    // function recipeDetails(recipe){
+    //     return <Redirect to="/details/${recipe.id}" />    
+    // }
+
 
 
    
         return (
             <article className="recipeContainer" >
-                <div className="dashboard" style={{ backgroundImage: `url(${background1})`,backgroundSize: 'cover' }}>
+                <div className="dashboard" style={{ backgroundImage: `url(${background2})`,backgroundSize: 'cover' }}>
                     <h1 className="dashboard-title">All Recipes</h1>
                     <ul className="RecipesList">
                         {recipes.map((recipe) => (
+
                             <li>
-                                <img src={recipe.imgUrl} alt="Logo"></img>
+                                <img className= "recipeImg" src={recipe.imgUrl} alt="Logo"></img>
                                 <h2>{recipe.title}</h2>
-                                <p>{recipe.description}</p>
+                                <p>{recipe.ingredients}</p>
                                 <p>
-                                    {recipe.time}
+                                    Time Needed : {recipe.time}
                                 </p>
-                            </li>
+                                <Link to={`details/${recipe.id}`}><i className="fas fa-sign-in-alt"></i> Details </Link>                            </li>
                         ))}
                     </ul>
                 </div>
