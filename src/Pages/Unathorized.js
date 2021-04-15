@@ -21,7 +21,7 @@ const Unauthorized = () => {
       <div class="message">
         <h1>403 - You Shall Not Pass</h1>
         <span>Uh oh, Gandalf is blocking the way!<br />Maybe you have a typo in the url?</span>
-        <span><Link to='/'>Back to Home</Link></span>
+        <span><Link to='/'> Back to Home</Link> or <Link to='/login'>Login</Link></span>
       </div>
       
     </div>
