@@ -10,6 +10,7 @@ import AddRecipe from "./Components/Create/AddRecipe"
 import Details from "./Components/Details/Details"
 import { useEffect, useState, useContext } from 'react';
 import { auth } from './firebase/firebase';
+import Error404 from "./Pages/Error404"
 
 
 
@@ -48,6 +49,9 @@ function App() {
                 }} />
           <Route path="/add-recipe" exact render={props => <AddRecipe {...props} {...authInfo} />} />
           <Route path='/details/:id' component={Details} />
+
+
+          <Route component={Error404} />
 
 
 
