@@ -8,11 +8,14 @@ import { Link } from 'react-router-dom'
 
 
 
-function Recipes() {
+const Recipes = ({
+    username
+}) => {
 
     const [recipes, setRecipes] = useState([]);
 
- 
+
+
     const ref = firebase.firestore().collection("recipes");
 
 
@@ -37,29 +40,33 @@ function Recipes() {
 
 
 
-   
-        return (
-            <article className="recipeContainer" >
-                <div className="dashboard" style={{ backgroundImage: `url(${background2})`,backgroundSize: 'cover' }}>
-                    <h1 className="dashboard-title">All Recipes</h1>
-                    <ul className="RecipesList">
-                        {recipes.map((recipe) => (
 
-                            <li>
-                                <img className= "recipeImage" src={recipe.imgUrl} alt="Logo"></img>
+    return (
+        <article className="recipeContainer" >
+            <div className="dashboard" >
+                <h1 className="dashboard-title">All Recipes</h1>
+                <ul className="RecipesList">
+                    {recipes.map((recipe) => (
+
+                        <li>
+                            <img className="recipeImg" src={recipe.imgUrl} alt="Logo"></img>
+                            <div className="recipeShortInfo">
                                 <h2>{recipe.title}</h2>
-                                <p>{recipe.ingredients}</p>
+                                <p className="recipesIngr">{recipe.ingredients}</p>
                                 <p>
                                     Time Needed : {recipe.time}
                                 </p>
-                                <Link to={`details/${recipe.id}`}><i className="fas fa-sign-in-alt"></i> Details </Link>                            </li>
-                        ))}
-                    </ul>
-                </div>
-            </article>
+                                <Link to={username ? `details/${recipe.id}` : '/login'}><i className="fas fa-sign-in-alt"></i> Details </Link>
+                            </div>
 
-        );
-    }
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </article>
+
+    );
+}
 
 
 

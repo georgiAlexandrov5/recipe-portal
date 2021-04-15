@@ -11,9 +11,14 @@
   
 }
 
+.recipesIngr{
+    max-width: 250px;
+}
+
 .RecipesList a{
-    padding: 9px;
-    background: white;
+    padding: 4px;
+    color: white;
+    background: #577FAC;
     border-radius: 7px;
     margin-left: 24px;
 }
@@ -21,17 +26,30 @@
 
 .RecipesList li{
     background-color: unset;
-    max-width: 200px;
     border-radius: 16px;
     margin-left: 50px;
+    margin-right: 50px;
     color: white;
     list-style: none;
+    border: 3px solid #577FAC;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+
+.recipeShortInfo{
+    text-align: center;
+    color: #577FAC;
+    max-height: 450px;
+    
 }
 
 .recipeImg{
-    max-width: 117px;
-    height: 140px;
+    max-width: 200px;
+    height: 200px;
     margin-left: -1px;
+    border-radius: 39px;
 }
 
 .dashboard-title{
@@ -39,4 +57,10 @@
     text-align: center;
     font-family: monospace;
     padding-top: 10px;
+}
+
+.RecipesList{
+    display: flex;
+    justify-content: space-evenly;
+
 }
