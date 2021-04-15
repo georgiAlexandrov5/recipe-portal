@@ -48,7 +48,7 @@ function App() {
                   return <Redirect to="/" />
                 }} />
           <Route path="/add-recipe" exact render={props => <AddRecipe {...props} {...authInfo} />} />
-          <Route path='/details/:id' component={Details} />
+          <Route path='/details/:id' component={Details} {...authInfo}/>
 
 
           <Route component={Error404} />

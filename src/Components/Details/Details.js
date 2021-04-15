@@ -4,7 +4,7 @@ import firebase from "../../firebase/firebase"
 import background1 from '../../public/background1.jpg'
 import './Details.css';
 
-function Details({ match, history }) {
+function Details({ match, history, username }) {
 
     let recipeId = match.params.id;
     let [recipe, setRecipe] = useState([]);
@@ -33,8 +33,6 @@ function Details({ match, history }) {
 
     useEffect(() => {
         getRecipe();
-        // console.log(loading);
-
     }, [setRecipe, setLoading]);
 
     return (
@@ -59,6 +57,9 @@ function Details({ match, history }) {
 
                                 </article>
                             </div>
+
+
+
 
                         </>
                     )

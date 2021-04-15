@@ -41,7 +41,7 @@ const Login = ({
                             <i className="fas fa-key"></i>
                         </span>
                     </p>
-                    <input className="button" type="submit" className="submit" value="Login" />
+                    <input className="logBtn" type="submit"  value="Login" />
                 </fieldset>
             </form>
             <p className="bottom-msg-paragraph">Don't have an account? <Link to="/register">Sign Up</Link>!</p>

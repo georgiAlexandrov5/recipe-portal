@@ -48,7 +48,7 @@ const Recipes = ({
                 <ul className="RecipesList">
                     {recipes.map((recipe) => (
 
-                        <li>
+                        <li key={recipe.id}>
                             <img className="recipeImg" src={recipe.imgUrl} alt="Logo"></img>
                             <div className="recipeShortInfo">
                                 <h2>{recipe.title}</h2>

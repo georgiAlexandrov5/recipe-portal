@@ -2,6 +2,7 @@
     text-align: center;
     margin-top: 50px;
     font-size: 20px;
+    height: 438px;
 }
 
 .field label{
@@ -11,4 +12,11 @@
 .login input{
     border-radius: 9px;
     padding: 5px;
+    
+}
+
+.logBtn{
+    background: #577FAC;
+    color: white;
+    margin-bottom: 10px;
 }
