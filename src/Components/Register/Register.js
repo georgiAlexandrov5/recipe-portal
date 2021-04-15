@@ -1,5 +1,7 @@
 import { auth } from '../../firebase/firebase';
 import './Register.css';
+import background2 from "../../public/background2.jpg"
+
 
 
 const Register = ({
@@ -19,6 +21,8 @@ const Register = ({
     }
     
     return (
+        <div className="regBackground" style={{ backgroundImage: `url(${background2})`, backgroundSize: 'cover'} }>
+
         <section className="register">
             <form onSubmit={onRegisterSubmitHandler}>
                 <fieldset>
@@ -43,6 +47,8 @@ const Register = ({
                 </fieldset>
             </form>
         </section>
+        </div>
+
     );
 }
 
