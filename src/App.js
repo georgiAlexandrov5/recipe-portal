@@ -8,9 +8,11 @@ import Login from "./Components/Login/Login"
 import Register from "./Components/Register/Register"
 import AddRecipe from "./Components/Create/AddRecipe"
 import Details from "./Components/Details/Details"
+import Unauthorized from "./Pages/Unathorized"
 import { useEffect, useState, useContext } from 'react';
 import { auth } from './firebase/firebase';
 import Error404 from "./Pages/Error404"
+import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute"
 
 
 
@@ -47,9 +49,10 @@ function App() {
                   authInfo.isAuthenticated = false;
                   return <Redirect to="/" />
                 }} />
-          <Route path="/add-recipe" exact render={props => <AddRecipe {...props} {...authInfo} />} />
-          <Route path='/details/:id' component={Details} {...authInfo}/>
-
+         
+          <ProtectedRoute path='/details/:id' component={Details} {...authInfo}/>
+          <ProtectedRoute exact path='/add-recipe'  component={AddRecipe} />
+          <Route exact path='/unauthorized' component={Unauthorized} />
 
           <Route component={Error404} />
 

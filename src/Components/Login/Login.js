@@ -22,6 +22,9 @@ const Login = ({
 
 
     return (
+           
+                
+        
         <div className="logBackground" style={{ backgroundImage: `url(${background2})`, backgroundSize: 'cover'} }>
             <section className="login" >
                 <form onSubmit={onLoginFormSubmitHandler}>
@@ -50,6 +53,8 @@ const Login = ({
 
             </section>
         </div>
+
+        
 
     );
 };
