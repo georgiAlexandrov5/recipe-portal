@@ -46,7 +46,7 @@ function Recipes() {
                         {recipes.map((recipe) => (
 
                             <li>
-                                <img className= "recipeImg" src={recipe.imgUrl} alt="Logo"></img>
+                                <img className= "recipeImage" src={recipe.imgUrl} alt="Logo"></img>
                                 <h2>{recipe.title}</h2>
                                 <p>{recipe.ingredients}</p>
                                 <p>

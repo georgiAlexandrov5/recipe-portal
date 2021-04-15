@@ -7,6 +7,7 @@ import Recipes from "./Components/Recipes/Recipes"
 import Login from "./Components/Login/Login"
 import Register from "./Components/Register/Register"
 import AddRecipe from "./Components/Create/AddRecipe"
+import Details from "./Components/Details/Details"
 import { useEffect, useState, useContext } from 'react';
 import { auth } from './firebase/firebase';
 
@@ -46,7 +47,7 @@ function App() {
                   return <Redirect to="/" />
                 }} />
           <Route path="/add-recipe" exact render={props => <AddRecipe {...props} {...authInfo} />} />
-          <Route path="/details/:id" component={Login} />
+          <Route path='/details/:id' component={Details} />
 
 
 
