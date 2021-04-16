@@ -4,6 +4,10 @@ import './AddRecipe.css';
 import background1 from '../../public/background1.jpg';
 import firebase from "../../firebase/firebase";
 import {v4 as uuidv4} from "uuid";
+import { notifyError, notifySuccess } from "../../services/notificationHandler"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 
@@ -13,7 +17,7 @@ class  AddRecipe extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { title: "", time: "", description: "", author: props.username,  imgUrl: "", ingredients: ""};
+        this.state = { title: "", time: "", description: "", author: props.username,  imgUrl: "", ingredients: "", alertShow: false, errors: []};
         this.onChangeHandler = this.onChangeHandler.bind(this);
         this.addRecipe = this.addRecipe.bind(this);
     }
@@ -27,7 +31,29 @@ class  AddRecipe extends Component {
         const ref = firebase.firestore().collection('recipes');
         newRecipe.preventDefault()
         newRecipe = {...this.state};
-        console.log(newRecipe)
+        if (newRecipe.title.length < 4){
+            notifyError('Meal name should be at least 4 characters long.');
+            return;
+        }
+
+        if (newRecipe.ingredients.length < 10){
+            notifyError('Ingredients should be at least 10 characters long.');
+            return;
+        }
+
+        if (newRecipe.description.length < 10){
+            notifyError('Description should be at least 10 characters long.');
+            return;
+        }
+
+        if (newRecipe.imgUrl.length<1){
+            notifyError('Please enter an image url for this recipe');
+            return;
+        }
+
+        
+
+        
         ref.doc(newRecipe.id = uuidv4())
         .set(newRecipe)
         .catch((err) => {
@@ -36,7 +62,6 @@ class  AddRecipe extends Component {
 
         this.props.history.push('/');
 
-        console.log(newRecipe);
     }
 
     render() {
@@ -89,6 +114,8 @@ class  AddRecipe extends Component {
                             :
                             <Button className="col-lg-12" variant="dark" type="submit">Add Recipe</Button>
                         }
+                                  <ToastContainer />
+
                     </Form>
                 </div>
             </>
