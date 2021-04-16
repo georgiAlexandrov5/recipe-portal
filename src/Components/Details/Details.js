@@ -3,6 +3,8 @@ import { Spinner } from 'react-bootstrap';
 import firebase from "../../firebase/firebase"
 import background1 from '../../public/background1.jpg'
 import './Details.css';
+import isAuth from "../../hoc/isAuth"
+
 
 function Details({ match, history, username }) {
 
@@ -70,4 +72,4 @@ function Details({ match, history, username }) {
     )
 }
 
-export default Details;
+export default isAuth(Details);

@@ -3,7 +3,6 @@ import './Register.css';
 import background2 from "../../public/background2.jpg"
 
 
-
 const Register = ({
     history
 }) => {

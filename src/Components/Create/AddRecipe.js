@@ -7,6 +7,9 @@ import {v4 as uuidv4} from "uuid";
 import { notifyError, notifySuccess } from "../../services/notificationHandler"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import isAuth from "../../hoc/isAuth"
+
+
 
 
 
@@ -17,10 +20,12 @@ class  AddRecipe extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { title: "", time: "", description: "", author: props.username,  imgUrl: "", ingredients: "", alertShow: false, errors: []};
+        this.state = { title: "", time: "", description: "", imgUrl: "", ingredients: "", alertShow: false, errors: []};
         this.onChangeHandler = this.onChangeHandler.bind(this);
         this.addRecipe = this.addRecipe.bind(this);
     }
+
+
     onChangeHandler(e) {
         e.preventDefault();
         this.setState({ [e.target.name]: e.target.value });
@@ -65,23 +70,18 @@ class  AddRecipe extends Component {
         setTimeout(
             function() {
                 this.props.history.push('/')  
-            }.bind(this), 3000
+            }.bind(this),
+            2000
         )
     }
 
     render() {
         return (
             <>
+            
                 <div className='container' style={{ backgroundImage: `url(${background1})`,backgroundSize: 'cover' }}>
                     <h1 className="heading">Add a Recipe</h1>
                     <Form onSubmit={this.addRecipe}>
-                        {this.state.alertShow &&
-                            <Alert variant="danger" onClose={() => this.setState({ alertShow: false })} dismissible>
-                                <p>
-                                    {this.state.errors}
-                                </p>
-                            </Alert>
-                        }
                         <Form.Row>
                             <Form.Group as={Col} controlId="formGridTitle">
                                 <Form.Label>Title</Form.Label>
@@ -130,4 +130,4 @@ class  AddRecipe extends Component {
 
 
 
-export default AddRecipe;
+export default isAuth(AddRecipe);

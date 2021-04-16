@@ -12,6 +12,8 @@ import Unauthorized from "./Pages/Unathorized"
 import { useEffect, useState} from 'react';
 import { auth } from './firebase/firebase';
 import Error404 from "./Pages/Error404"
+import AuthContext from './context/AuthContext';
+import isAuth from './hoc/isAuth';
 
 
 
@@ -39,6 +41,7 @@ function App() {
 
   return (
     <>
+    <AuthContext.Provider value = {authInfo}>
       <Header {...authInfo} />
       <Switch>
         <Route path="/" exact render={props => <Recipes {...props} {...authInfo} />} />
@@ -49,20 +52,15 @@ function App() {
           authInfo.isAuthenticated = false;
           return <Redirect to="/" />
         }} />
-        {
-          authInfo.username ?
-            <>
-              <Route path="/add-recipe" exact render={props => <AddRecipe {...props} {...authInfo} />} />
-              <Route path='/details/:id' component={Details} {...authInfo} />
-            </>
-            :
-            <Route exact path='/add-recipe' component={Unauthorized} />
-        }
+
+      <Route path="/add-recipe" component={isAuth(AddRecipe)} {...authInfo} />
+      <Route path='/details/:id' component={isAuth(Details)} {...authInfo} />
+
         <Route exact path='/unauthorized' component={Unauthorized} />
         <Route component={Error404} />
       </Switch>
       <Footer />
-
+      </AuthContext.Provider>
 
     </>
   );
