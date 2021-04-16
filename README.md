@@ -1,4 +1,4 @@
-Recipe Portal is a place where cooking enthusiasts can share they passion and knowledge. Users can see the available recipes without loggin in, however reading further details aabout a particular recipe or creating a recipe on their own requires authentication.
+Recipe Portal is a place where cooking enthusiasts can share they passion and knowledge. Users can see the available recipes without logging in, however reading further details about a particular recipe or creating a recipe on their own requires authentication.
 
 Tech Stack:
 
