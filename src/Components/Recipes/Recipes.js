@@ -48,22 +48,24 @@ const Recipes = ({
                 <ul className="RecipesList">
                     {recipes.map((recipe) => (
 
-                        <li className="our-team-main">
-                            <div className="team-front">
-                                <img src={recipe.imgUrl} alt = ""/>
+                        <li className="recipeWrap" key="1">
+                            <div className="recipeFront">
+                                <img src={recipe.imgUrl} alt="" />
                                 <h3>{recipe.title}</h3>
                             </div>
 
-                            <div className="team-back">
+                            <div className="recipeBack">
                                 <div className="back-side-info">
                                     <h4>Ingredients</h4>
                                     <ul>
-                                        {recipe.ingredients}
+                                        {recipe.ingredients.map((item, index) => {
+                                            return <li className="ingredientLi" key={index}>{item}</li>;
+                                        })}
                                     </ul>
-                                    
-                                        <Link to={`/details/${recipe.id}`}>View the recipe</Link>
-                                  
-                                    
+
+                                    <Link to={`/details/${recipe.id}`}>View the recipe</Link>
+
+
                                 </div>
 
                                 <img className="foodImage" src={recipe.imgUrl} alt="{meal}" />

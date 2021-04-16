@@ -52,9 +52,15 @@ function Details({ match, history, username }) {
                                     <img className="recipeImage" src={recipe.imgUrl} alt="Logo"></img>
                                 </article>
                                 <article className="recipeInfoWrapper">
-                                    <span className="recipeTime">Time to cook : {recipe.time}</span>
+                                    <span className="recipeTime">Time to cook : {recipe.time}                                   
+                                    </span>
 
-                                    <p className="recipeIngredients">Ingredients : {recipe.ingredients}</p>
+                                    <p className="recipeIngredients">Ingredients: <br>
+                                    </br>
+                                    
+                                     {recipe.ingredients}
+                                     
+                                     </p>
                                     <p className="recipeDescription">{recipe.description}</p>
 
                                 </article>

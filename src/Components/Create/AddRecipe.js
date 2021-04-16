@@ -20,7 +20,7 @@ class  AddRecipe extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { title: "", time: "", description: "", imgUrl: "", ingredients: "", alertShow: false, errors: []};
+        this.state = { title: "", time: "", description: "", imgUrl: "", ingredients: [], alertShow: false, errors: []};
         this.onChangeHandler = this.onChangeHandler.bind(this);
         this.addRecipe = this.addRecipe.bind(this);
     }
@@ -40,12 +40,16 @@ class  AddRecipe extends Component {
         const ref = firebase.firestore().collection('recipes');
         newRecipe.preventDefault()
         newRecipe = {...this.state};
+
+        newRecipe.ingredients = this.state.ingredients.split(",")
+        console.log(newRecipe.ingredients);
+
         if (newRecipe.title.length < 4){
             notifyError('Meal name should be at least 4 characters long.');
             return;
         }
 
-        if (newRecipe.ingredients.length < 10){
+        if (newRecipe.ingredients.length < 4){
             notifyError('Ingredients should be at least 10 characters long.');
             return;
         }
