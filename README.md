@@ -15,6 +15,8 @@ Install react toastify: npm i react-toastify
 
 Start the project: npm start
 
+Install UUID : npm i uuid
+
 
 The project will run on http://localhost:3000/
 
