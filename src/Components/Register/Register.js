@@ -22,10 +22,20 @@ const Register = ({
         }
 
         auth.createUserWithEmailAndPassword(username, password)
+            .then(notifySuccess('Registration successful!'))
+            .then(
+                setTimeout(
+                    function() {
+                    },
+                    2000
+                )
+            )
             .then(res => {
-                console.log('Register');
-                history.push('/');
+                auth.signOut();
+                history.push('/login');
             });
+
+
     }
     
     return (
