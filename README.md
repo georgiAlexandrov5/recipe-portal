@@ -2,9 +2,9 @@ Recipe Portal is a place where cooking enthusiasts can share they passion and kn
 
 Tech Stack:
 
-React,
-react-bootstrap,
-"serverless" => firebase for auth and firestore for storage
+- React.js,
+- react-bootstrap,
+- "serverless" => firebase for auth and firestore for storage
 
 How to run:
 
