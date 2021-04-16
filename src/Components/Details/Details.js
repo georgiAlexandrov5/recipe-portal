@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Col, Row, Spinner } from 'react-bootstrap';
+import { Spinner } from 'react-bootstrap';
 import firebase from "../../firebase/firebase"
 import background1 from '../../public/background1.jpg'
 import './Details.css';

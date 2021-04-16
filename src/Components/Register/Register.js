@@ -28,9 +28,9 @@ const Register = ({
                 <fieldset>
                     <legend>Register</legend>
                     <p className="field">
-                        <label htmlFor="username">Username</label>
+                        <label htmlFor="username">Email</label>
                         <span className="input">
-                            <input type="text" name="username" id="username" placeholder="Username" />
+                            <input className="emailInput" type="text" name="username" id="username" placeholder="Email" />
                             <span className="actions"></span>
                             <i className="fas fa-user"></i>
                         </span>

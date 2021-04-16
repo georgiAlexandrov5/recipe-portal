@@ -1,24 +1,20 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
+import { useGlobalContext } from "../../firebase/context"
 
-const ProtectedRoute = ({ component: Component, user, ...rest }) => {
+const ProtectedRoute = ({ component: Component, ...rest }) => {
+  const { user } = useGlobalContext();
+
+
+
   return (
-    <Route {...rest} render={
-      props => {
-        if (user) {
-          return <Component {...rest} {...props} />
-        } else {
-          return <Redirect to={
-            {
-              pathname: '/unauthorized',
-              state: {
-                from: props.location
-              }
-            }
-          } />
-        }
-      }
-    } />
+    <Route
+    {...rest}
+    render={(props) =>
+      user ? <Component {...props} /> : <Redirect to="/unauthorized" />
+    }
+  />
+
   )
 }
 

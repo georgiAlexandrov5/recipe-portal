@@ -9,10 +9,10 @@ import Register from "./Components/Register/Register"
 import AddRecipe from "./Components/Create/AddRecipe"
 import Details from "./Components/Details/Details"
 import Unauthorized from "./Pages/Unathorized"
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState} from 'react';
 import { auth } from './firebase/firebase';
 import Error404 from "./Pages/Error404"
-import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute"
+
 
 
 

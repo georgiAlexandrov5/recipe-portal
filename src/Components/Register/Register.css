@@ -13,6 +13,10 @@
     margin-bottom: -60px;
 }
 
+.emailInput{
+    margin-left: 40px;
+}
+
 .field label{
     margin-right: 13px;
 }
