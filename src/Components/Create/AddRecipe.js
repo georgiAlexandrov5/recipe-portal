@@ -60,8 +60,13 @@ class  AddRecipe extends Component {
             console.log(err)
         })
 
-        this.props.history.push('/');
+        notifySuccess('Recipe created successfully!');
 
+        setTimeout(
+            function() {
+                this.props.history.push('/')  
+            }.bind(this), 3000
+        )
     }
 
     render() {
