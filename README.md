@@ -9,8 +9,11 @@ Tech Stack:
 How to run:
 
 Install firebase: npm i firebase
-Start the project: npm start
+
 Install react toastify: npm i react-toastify
+
+Start the project: npm start
+
 
 The project will run on http://localhost:3000/
 
