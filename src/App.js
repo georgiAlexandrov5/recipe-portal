@@ -29,40 +29,41 @@ function App() {
   useEffect(() => {
     auth.onAuthStateChanged(setUser);
   }, []);
- 
+
 
   const authInfo = {
     isAuthenticated: Boolean(user),
     username: user?.email,
   };
 
-  
+
   return (
     <>
-      <Header {...authInfo}/>
+      <Header {...authInfo} />
       <Switch>
-          <Route path="/" exact render={props => <Recipes {...props} {...authInfo} />} />
-          <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} />
-          <Route path="/logout" render={() => {
-                  auth.signOut();
-                  authInfo.isAuthenticated = false;
-                  return <Redirect to="/" />
-                }} />
-         
-          <ProtectedRoute path='/details/:id' component={Details} {...authInfo}/>
-          <ProtectedRoute exact path='/add-recipe'  component={AddRecipe} />
-          <Route exact path='/unauthorized' component={Unauthorized} />
-
-          <Route component={Error404} />
-
-
-
-
+        <Route path="/" exact render={props => <Recipes {...props} {...authInfo} />} />
+        <Route path="/login" component={Login} />
+        <Route path="/register" component={Register} />
+        <Route path="/logout" render={() => {
+          auth.signOut();
+          authInfo.isAuthenticated = false;
+          return <Redirect to="/" />
+        }} />
+        {
+          authInfo.username ?
+            <>
+              <Route path="/add-recipe" exact render={props => <AddRecipe {...props} {...authInfo} />} />
+              <Route path='/details/:id' component={Details} {...authInfo} />
+            </>
+            :
+            <Route exact path='/add-recipe' component={Unauthorized} />
+        }
+        <Route exact path='/unauthorized' component={Unauthorized} />
+        <Route component={Error404} />
       </Switch>
       <Footer />
 
-      
+
     </>
   );
 }

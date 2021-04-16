@@ -14,7 +14,7 @@ const Register = ({
         const password = e.target.password.value;
 
         auth.createUserWithEmailAndPassword(username, password)
-            .then(userCredential => {
+            .then(res => {
                 console.log('Register');
                 history.push('/');
             });

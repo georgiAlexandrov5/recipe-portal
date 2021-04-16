@@ -15,7 +15,7 @@ const Login = ({
 
 
         auth.signInWithEmailAndPassword(username, password)
-            .then((userCredential) => {
+            .then((res) => {
                 history.push('/');
             });
     };

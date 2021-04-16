@@ -29,7 +29,7 @@ class  AddRecipe extends Component {
         const ref = firebase.firestore().collection('recipes');
         newRecipe.preventDefault()
         newRecipe = {...this.state};
-        console.log(this.props)
+        console.log(newRecipe)
         ref.doc(newRecipe.id = uuidv4())
         .set(newRecipe)
         .catch((err) => {
@@ -43,8 +43,6 @@ class  AddRecipe extends Component {
 
     render() {
         return (
-
-        
             <>
                 <div className='container' style={{ backgroundImage: `url(${background1})`,backgroundSize: 'cover' }}>
                     <h1 className="heading">Add a Recipe</h1>
@@ -96,7 +94,6 @@ class  AddRecipe extends Component {
                     </Form>
                 </div>
             </>
-
         )
     }
 }

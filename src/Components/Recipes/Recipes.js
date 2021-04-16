@@ -56,7 +56,7 @@ const Recipes = ({
                                 <p>
                                     Time Needed : {recipe.time}
                                 </p>
-                                <Link to={username ? `details/${recipe.id}` : '/login'}><i className="fas fa-sign-in-alt"></i> Details </Link>
+                                <Link to={username ? `details/${recipe.id}` : '/unauthorized'}><i className="fas fa-sign-in-alt"></i> Details </Link>
                             </div>
 
                         </li>
