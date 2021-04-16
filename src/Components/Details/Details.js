@@ -4,6 +4,8 @@ import firebase from "../../firebase/firebase"
 import background1 from '../../public/background1.jpg'
 import './Details.css';
 import isAuth from "../../hoc/isAuth"
+import ref from "../../static/firebaseRef"
+
 
 
 function Details({ match, history, username }) {
@@ -12,7 +14,6 @@ function Details({ match, history, username }) {
     let [recipe, setRecipe] = useState([]);
     let [loading, setLoading] = useState(true);
 
-    const ref = firebase.firestore().collection("recipes");
 
     function getRecipe() {
         // await ref.doc(recipeId).get()
@@ -52,8 +53,9 @@ function Details({ match, history, username }) {
                                     <img className="recipeImage" src={recipe.imgUrl} alt="Logo"></img>
                                 </article>
                                 <article className="recipeInfoWrapper">
-                                    <span className="recipeTime">Time to cook : {recipe.time}                                   
-                                    </span>
+                                    <p className="recipeTime">Time to cook : {recipe.time}                                   
+                                    </p>
+                                    
 
                                     <p className="recipeIngredients">Ingredients: <br>
                                     </br>

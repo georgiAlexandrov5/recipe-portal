@@ -1,8 +1,7 @@
-import { Component, useState, useEffect } from 'react';
-import background2 from '../../public/background2.jpg'
+import { useState, useEffect } from 'react';
 import './Recipes.css';
-import firebase from '../../firebase/firebase'
 import { Link } from 'react-router-dom'
+import ref from "../../static/firebaseRef"
 
 
 
@@ -14,9 +13,6 @@ const Recipes = ({
 
     const [recipes, setRecipes] = useState([]);
 
-
-
-    const ref = firebase.firestore().collection("recipes");
 
 
     function getRecipes() {
@@ -33,13 +29,6 @@ const Recipes = ({
     useEffect(() => {
         getRecipes();
     }, []);
-
-    // function recipeDetails(recipe){
-    //     return <Redirect to="/details/${recipe.id}" />    
-    // }
-
-
-
 
     return (
         <article className="recipeContainer" >

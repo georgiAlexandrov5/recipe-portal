@@ -1,6 +1,9 @@
 import { auth } from '../../firebase/firebase';
 import './Register.css';
 import background2 from "../../public/background2.jpg"
+import { notifyError, notifySuccess } from "../../services/notificationHandler"
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Register = ({
@@ -11,6 +14,12 @@ const Register = ({
 
         const username = e.target.username.value;
         const password = e.target.password.value;
+        const confirmPassword = e.target.confirmPassword.value;
+
+        if (password != confirmPassword){
+            notifyError('Password and Confirm password should match!');
+            return;
+        }
 
         auth.createUserWithEmailAndPassword(username, password)
             .then(res => {
@@ -41,10 +50,21 @@ const Register = ({
                             <span className="actions"></span>
                             <i className="fas fa-key"></i>
                         </span>
+                        
+                    </p>
+                    <p className="field">
+                        <label htmlFor="password" className="confirmPassLabel">Confirm Password</label>
+                        <span className="input">
+                            <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" />
+                            <span className="actions"></span>
+                            <i className="fas fa-key"></i>
+                        </span>
+                        
                     </p>
                     <input className="regBtn" type="submit"  value="Register" />
                 </fieldset>
             </form>
+            <ToastContainer />
         </section>
         </div>
 
