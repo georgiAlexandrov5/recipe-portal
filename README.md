@@ -5,6 +5,7 @@ Tech Stack:
 - React.js,
 - react-bootstrap,
 - "serverless" => firebase for auth and firestore for storage
+- react toastify for error handling
 
 How to run:
 

@@ -1,11 +1,11 @@
 import { Component } from 'react';
-import { Form, Button, Col, Spinner, Alert } from 'react-bootstrap';
+import { Form, Button, Col, Spinner } from 'react-bootstrap';
 import './AddRecipe.css';
 import background1 from '../../public/background1.jpg';
 import firebase from "../../firebase/firebase";
 import {v4 as uuidv4} from "uuid";
 import { notifyError, notifySuccess } from "../../services/notificationHandler"
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import isAuth from "../../hoc/isAuth"
 
@@ -23,6 +23,10 @@ class  AddRecipe extends Component {
         this.state = { title: "", time: "", description: "", imgUrl: "", ingredients: "", alertShow: false, errors: []};
         this.onChangeHandler = this.onChangeHandler.bind(this);
         this.addRecipe = this.addRecipe.bind(this);
+    }
+
+    componentDidMount(){
+        
     }
 
 

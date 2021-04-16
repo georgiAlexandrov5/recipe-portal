@@ -48,17 +48,26 @@ const Recipes = ({
                 <ul className="RecipesList">
                     {recipes.map((recipe) => (
 
-                        <li key={recipe.id}>
-                            <img className="recipeImg" src={recipe.imgUrl} alt="Logo"></img>
-                            <div className="recipeShortInfo">
-                                <h2>{recipe.title}</h2>
-                                <p className="recipesIngr">{recipe.ingredients}</p>
-                                <p>
-                                    Time Needed : {recipe.time}
-                                </p>
-                                <Link to={username ? `details/${recipe.id}` : '/unauthorized'}><i className="fas fa-sign-in-alt"></i> Details </Link>
+                        <li className="our-team-main">
+                            <div className="team-front">
+                                <img src={recipe.imgUrl} alt = ""/>
+                                <h3>{recipe.title}</h3>
                             </div>
 
+                            <div className="team-back">
+                                <div className="back-side-info">
+                                    <h4>Ingredients</h4>
+                                    <ul>
+                                        {recipe.ingredients}
+                                    </ul>
+                                    
+                                        <Link to={`/details/${recipe.id}`}>View the recipe</Link>
+                                  
+                                    
+                                </div>
+
+                                <img className="foodImage" src={recipe.imgUrl} alt="{meal}" />
+                            </div>
                         </li>
                     ))}
                 </ul>
