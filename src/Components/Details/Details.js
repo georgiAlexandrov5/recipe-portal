@@ -6,7 +6,6 @@ import isAuth from "../../hoc/isAuth"
 import ref from "../../static/firebaseRef"
 import { FaThumbsUp, FaThumbsDown } from 'react-icons/fa';
 import likeOne from "../../services/recipeServices/likeOne"
-import dislikeOne from "../../services/recipeServices/dislikeOne"
 
 
 
@@ -58,7 +57,7 @@ function Details({ match, history, username }) {
       const onRecipeDislikeButtonClickHandler = () => {
         
         const incrementedLikes = Number(recipe.likesCounter) - 1;
-        dislikeOne(recipeId, incrementedLikes).then(() => {
+        likeOne(recipeId, incrementedLikes).then(() => {
           setRecipe((oldState) => ({
             ...oldState,
             likesCounter: incrementedLikes,

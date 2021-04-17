@@ -52,7 +52,7 @@ const Recipes = ({
                                         })}
                                     </ul>
 
-                                    <Link to={`/details/${recipe.id}`}>View the recipe</Link>
+                                    <Link to={`/details/${recipe.id}`}>Details</Link>
 
 
                                 </div>
