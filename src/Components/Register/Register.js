@@ -4,6 +4,8 @@ import background2 from "../../public/background2.jpg"
 import { notifyError, notifySuccess } from "../../services/notificationHandler"
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Link } from 'react-router-dom'
+
 
 
 const Register = ({
@@ -74,6 +76,8 @@ const Register = ({
                     <input className="regBtn" type="submit"  value="Register" />
                 </fieldset>
             </form>
+            <p className="bottom-msg-paragraph">Already have an account? <Link to="/login">Log In</Link>!</p>
+
             <ToastContainer />
         </section>
         </div>
