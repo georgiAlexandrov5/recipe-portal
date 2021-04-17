@@ -17,6 +17,8 @@ Start the project: npm start
 
 Install UUID : npm i uuid
 
+Install React ICONS: npm install react-icons --save
+
 
 The project will run on http://localhost:3000/
 

@@ -47,3 +47,12 @@
     margin-left: -1px;
     box-shadow: -1px 5px 30px black;  
 }
+
+.likes{
+    text-align: center;
+}
+
+.thumb{
+    margin: 0px 20px 0px 20px;
+    font-size: 20px;
+}

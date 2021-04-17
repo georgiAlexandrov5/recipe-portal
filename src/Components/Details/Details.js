@@ -1,10 +1,15 @@
 import { useEffect, useState } from 'react';
 import { Spinner } from 'react-bootstrap';
-import firebase from "../../firebase/firebase"
 import background1 from '../../public/background1.jpg'
 import './Details.css';
 import isAuth from "../../hoc/isAuth"
 import ref from "../../static/firebaseRef"
+import { FaThumbsUp, FaThumbsDown } from 'react-icons/fa';
+import likeOne from "../../services/recipeServices/likeOne"
+import dislikeOne from "../../services/recipeServices/dislikeOne"
+
+
+
 
 
 
@@ -27,7 +32,8 @@ function Details({ match, history, username }) {
                 description: res.data().description,
                 ingredients: res.data().ingredients,
                 time: res.data().time,
-                imgUrl: res.data().imgUrl
+                imgUrl: res.data().imgUrl,
+                likesCounter: res.data().likesCounter
             })),
                 setLoading(false))
             .catch(err => console.log(err))
@@ -37,6 +43,31 @@ function Details({ match, history, username }) {
     useEffect(() => {
         getRecipe();
     }, [setRecipe, setLoading]);
+
+    const onRecipeLikeButtonClickHandler = () => {
+        
+        const incrementedLikes = Number(recipe.likesCounter) + 1;
+        likeOne(recipeId, incrementedLikes).then(() => {
+          setRecipe((oldState) => ({
+            ...oldState,
+            likesCounter: incrementedLikes,
+          }));
+        });
+      };
+
+      const onRecipeDislikeButtonClickHandler = () => {
+        
+        const incrementedLikes = Number(recipe.likesCounter) - 1;
+        dislikeOne(recipeId, incrementedLikes).then(() => {
+          setRecipe((oldState) => ({
+            ...oldState,
+            likesCounter: incrementedLikes,
+          }));
+        });
+      };
+
+
+    
 
     return (
         <>
@@ -53,20 +84,26 @@ function Details({ match, history, username }) {
                                     <img className="recipeImage" src={recipe.imgUrl} alt="Logo"></img>
                                 </article>
                                 <article className="recipeInfoWrapper">
-                                    <p className="recipeTime">Time to cook : {recipe.time}                                   
+                                    <p className="recipeTime">Time to cook : {recipe.time}
                                     </p>
-                                    
+
 
                                     <p className="recipeIngredients">Ingredients: <br>
                                     </br>
-                                    
-                                     {recipe.ingredients}
-                                     
-                                     </p>
+
+                                        {recipe.ingredients}
+
+                                    </p>
                                     <p className="recipeDescription">{recipe.description}</p>
+                                    <p className="likes"> <FaThumbsUp className="thumb" onClick = {onRecipeLikeButtonClickHandler} /> 
+                                     {recipe.likesCounter}                    
+                                      <FaThumbsDown  className="thumb" onClick = {onRecipeDislikeButtonClickHandler}/>
+                                      </p>
 
                                 </article>
                             </div>
+
+                    
 
 
 
